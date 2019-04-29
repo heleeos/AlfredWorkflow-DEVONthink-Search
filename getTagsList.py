@@ -12,6 +12,7 @@ selectedDbUUID = os.getenv('selectedDbUUID', "")
 
 dtTagsFilePath = os.path.expanduser(
     "~/Library/Caches/Metadata/DEVONthink Pro 2/Lookup/{}.dtTags".format(selectedDbUUID))
+    # todo: migrate to dt3
 
 
 if not os.path.exists(dtTagsFilePath):

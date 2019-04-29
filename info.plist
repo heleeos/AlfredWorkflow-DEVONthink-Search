@@ -188,11 +188,11 @@
 	<key>createdby</key>
 	<string>Charles Ma</string>
 	<key>description</key>
-	<string>Powerful tool for searching in DEVONthink Pro / Pro Office</string>
+	<string>Powerful tool for searching in Devonthink 3 / Pro Office</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>DEVONthink Pro Search</string>
+	<string>Devonthink 3 Search</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -206,7 +206,7 @@
 				<string>echo '{query}' | perl -CIOED -p -e 's/(\p{Block=CJK_Unified_Ideographs}+)/ ~\1 /g' | pbcopy
 
 AScommand=$(cat&lt;&lt;EOF
-tell application "DEVONthink Pro" to activate
+tell application "Devonthink 3" to activate
 tell application "System Events"
     keystroke "f" using {command down, shift down}
     tell application "System Events" to keystroke "v" using command down
@@ -300,7 +300,7 @@ osascript -e "$AScommand"</string>
 				<key>subtext</key>
 				<string>{var:selectedDbName}</string>
 				<key>title</key>
-				<string>Search in DEVONthink Pro</string>
+				<string>Search in Devonthink 3</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -370,7 +370,7 @@ osascript -e "$AScommand"</string>
 				<key>script</key>
 				<string>function run(argv) {
     var query = argv[0];
-    const DNt = Application('DEVONthink Pro');
+    const DNt = Application('Devonthink 3');
 	DNt.activate()
     DNt.openWindowFor({ record: DNt.getRecordWithUuid(query) })
 }</string>
@@ -557,7 +557,13 @@ open "x-devonthink-item://${1}?reveal=1"</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>on run	set theQuery to "{query}"	tell application "DEVONthink Pro"		load workspace theQuery		activate	end tellend run</string>
+				<string>on run
+	set theQuery to "{query}"
+	tell application "Devonthink 3"
+		load workspace theQuery
+		activate
+	end tell
+end run</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -648,7 +654,12 @@ open "x-devonthink-item://${1}?reveal=1"</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>on run	set theQuery to "{query}"	tell application "DEVONthink Pro"		save workspace theQuery	end tellend run</string>
+				<string>on run
+	set theQuery to "{query}"
+	tell application "Devonthink 3"
+		save workspace theQuery
+	end tell
+end run</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
